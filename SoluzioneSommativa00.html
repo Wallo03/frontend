@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soluzione Sommativa 00</title>
+</head>
+<body>
+    <main id="idMainContent">
+        <!-- 
+            <label for="txtImmagine01">Immagine01</label>
+            <input type="text" name="txtImmagini01" id="txtImmagini01">
+            
+            <br>
+            
+            <label for="txtImmagine02">Immagine02</label>
+            <input type="text" name="txtImmagini02" id="txtImmagini02">
+            
+            <br>
+            
+            <div id="idImmagini">
+                ***Le immagini saranno caricate a run time***
+                <img src="img/goku.jpg" alt="Goku" width="300" height="200" id="idImmagine01">
+                <img src="img/mrsatan.avif" alt="Mr.Satan" width="300" height="200" id="idImmagine02">
+            </div>
+            
+            <input type="button" value="Caricamento Immagini" onclick="caricaImmagini()">
+            <input type="button" value="Inverti Posizione" onclick="invertiImmagini()">
+        -->
+        
+        
+    </main>
+    <script>
+        var strPaginaIniziale = '<label for="txtImmagine01">Immagine01</label>';
+        strPaginaIniziale += '<input type="text" name="txtImmagine01" id="txtImmagini01" placeholder="goku.jpg">'; //è uguale a fare strPaginaIniziale = strPaginaIniziale + ''
+        strPaginaIniziale += '<br>';
+        strPaginaIniziale += '<label for="txtImmagine02">Immagine02</label>';
+        strPaginaIniziale += '<input type="text" name="txtImmagine02" id="txtImmagini02" placeholder="mrsatan.avif">';
+        strPaginaIniziale += '<br>';
+        strPaginaIniziale += '<div id="idImmagini">';
+        //strPaginaIniziale += '<img src="img/goku.jpg" alt="Goku" width="300" height="200" id="idImmagine01">';
+        //strPaginaIniziale += '<img src="img/mrsatan.avif" alt="Mr.Satan" width="300" height="200" id="idImmagine02">';
+        strPaginaIniziale += '</div>';
+        strPaginaIniziale += '<input type="button" value="Caricamento Immagini" onclick="caricaImmagini()">';
+        strPaginaIniziale += '<input type="button" value="Inverti Posizione" onclick="invertiImmagineCopia()">';
+        document.getElementById("idMainContent").innerHTML = strPaginaIniziale;
+
+        var objImmagine01 = document.getElementById("txtImmagini01");
+        var objImmagine02 = document.getElementById("txtImmagini02");
+
+        function caricaImmagini() {
+            //console.log("Immagine01" + objImmagine01.value);
+            //console.log("Immagine02" + objImmagine02.value);            
+              //var strImmagini = '<img src="img/'+objImmagine01.value+'" alt="Goku" width="300" height="200" id="idImmagine01">';
+              //strImmagini += '<img src="img/'+objImmagine02.value+'" alt="Mr.Satan" width="300" height="200" id="idImmagine02">';
+            //strImmagini += '<img src="img/mrsatan.avif" alt="Mr.Satan" width="300" height="200" id="idImmagine02">';
+            var strImmagini = '<img src="" alt="Goku" width="300" height="200" id="idImmagine01">';
+            strImmagini += '<img src="" alt="Mr.Satan" width="300" height="200" id="idImmagine02">';
+            
+            document.getElementById("idImmagini").innerHTML = strImmagini;
+            
+            document.getElementById("idImmagine01").src = 'img/' + objImmagine01.value;
+            document.getElementById("idImmagine02").src =  'img/' + objImmagine02.value;
+        }
+
+        function invertiImmagini() {
+            //console.log("inverti immagine");
+            var temp = objImmagine01;  //lo rendo utilizzabile grazie a questo assegnamento da fare in modo di poter riutilizzare l'objImmagine1 per 2 volte
+            objImmagine01 = objImmagine02;
+            objImmagine02 = temp;
+
+            var strImmagini = '<img src="img/'+objImmagine01.value+'" alt="Goku" width="300" height="200" id="idImmagine01">';
+            strImmagini += '<img src="img/'+objImmagine02.value+'" alt="Mr.Satan" width="300" height="200" id="idImmagine02">';
+            document.getElementById("idImmagini").innerHTML = strImmagini;
+        }
+
+        function invertiImmagineCopia() {
+            //console.log("inverti immagine");
+            var objImmagine01ValueCopia = objImmagine01.value;
+            var objImmagine02ValueCopia = objImmagine02.value;
+
+            var temp = objImmagine01ValueCopia;  //lo rendo utilizzabile grazie a questo assegnamento da fare in modo di poter riutilizzare l'objImmagine1 per 2 volte
+            objImmagine01ValueCopia = objImmagine02ValueCopia;
+            objImmagine02ValueCopia = temp;
+
+            var strImmagini = '<img src="img/'+objImmagine01ValueCopia+'" alt="Goku" width="300" height="200" id="idImmagine01">';
+            strImmagini += '<img src="img/'+objImmagine02ValueCopia+'" alt="Mr.Satan" width="300" height="200" id="idImmagine02">';
+            document.getElementById("idImmagini").innerHTML = strImmagini;
+        }
+
+    </script>
+</body>
+</html>

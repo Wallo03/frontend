@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fattura</title>
+</head>
+<body>
+    <form id="form-exmp" name="form-esercizio" action="Inserisci.html" method="post">
+
+        <table>
+            <tr>
+            <td>
+    <fieldset>
+        <legend>Anagrafica</legend>
+
+            <label for="">Tipologia:</label>
+             <input type="radio" name="Tipologia" id="form-persona-fisica" required>
+            <label for="form-persona-fisica">Persona Fisica</label>
+             <input type="radio" name="Tipologia" id="form-partita-iva">
+            <label for="form-partita-iva">Partita Iva</label><br>
+ 
+          <label for="form-txt-ragione-sociale">Ragione Sociale</label> <br>
+           <input type="text" name="ragione-sociale" id="form-txt-ragione-sociale" required><br>
+           
+          <label for="form-via">Via</label>
+           <input type="text" name="Via" id="form-via" required>
+
+          <label for="form-numero-civico">n°</label>
+           <input type="text" name="numero-civico" id="form-txt-numero-civico" required><br>
+
+
+          <label for="form-città">Citt&agrave;</label>
+           <input type="text" name="citt&agrave;" id="form-città" required>
+          <label for="form-cap">CAP</label>
+           <input type="text" name="CAP" id="form-cap" required><br>
+        
+          <label for="form-txt-cf">CF</label>
+           <input type="text" name="cf" id="form-txt-cf" required>
+          <label for="form-txt-partita-iva">PI</label>
+          <input type="text" name="partitaIva" id="form-txt-partita-iva" required>
+
+    </fieldset>
+        </td>
+    
+      </tr>
+
+      <tr>
+       <td>
+
+            <fieldset>
+                <legend>Dati Spedizione</legend>
+        
+                    <label for="form-indirizzo-spedizione">Via</label>
+                    <input required type="text" name="IndirizzoSpedizione" id="form-indirizzo-spedizione" required>
+                    <label for="form-txt-numero">n°</label>
+                    <input type="text" name="numero" id="form-txt-numero" required><br>
+        
+                    <label for="form-txt-città-2">Citt&agrave;</label>
+                    <input type="text" name="città2" id="form-txt-città-2" required>
+                    <label for="form-txt-cap-2">CAP</label>
+                    <input type="text" name="cap-2" id="form-txt-cap-2" required><br>
+        
+                    <label for="form-select-servizio">Tipologia spedizione:</label>
+                    <select name="ServizioSpedizione" id="form-select-servizio" required>
+                        <option value="SP1">Standard</option>
+                        <option value="SP2">Spedizione Veloce</option>
+                    </select>       
+            </fieldset>
+        </td>
+
+     </tr>
+
+        <tr>
+            <td></td>
+            <td></td>
+            <td>
+           <input type="reset" value="Anulla" name="Bottone Annulla" id="form-btn-annulla1">
+          <input type="submit" value="Inserisci" name="Bottone Inserisci" id="from-btn-inserisci1">
+           </td>
+        </tr>
+
+    </table>
+    </form>
+</body>
+</html>
