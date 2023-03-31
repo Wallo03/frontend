@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualizza Nomi</title>
+</head>
+<body onload="caricaPaginaIniziale()">
+    <main id="idMainContent">
+        
+        <!--  
+            <div id="idListaNomi">
+                
+            </div>
+            <input type="button" value="Carica Nomi" id="btnCaricaNomi" onclick="caricamentoNomi()">
+        -->
+    </main>
+    <script>
+        function caricaPaginaIniziale() {
+            let strPaginaIniziale = '<div id="idListaNomi">';
+                strPaginaIniziale += '</div>';
+                strPaginaIniziale += '<div id="idListaNomiInverso">';
+                strPaginaIniziale += '</div>';
+                strPaginaIniziale += '<input type="button" value="Carica Nomi" id="btnCaricaNomi" onclick="caricamentoNomi()">';
+            document.getElementById("idMainContent").innerHTML = strPaginaIniziale;
+        }
+
+
+        /*function caricamentoNomi() {
+            let arrayNomi = ["Giovanni", "Pietro", "Davide", "Steve", "Nene"];
+            let arrayNomiInverso = [];
+
+            for (let i = 0; i < arrayNomi.length; i++) {
+                arrayNomiInverso[arrayNomi.length-1-i] = arrayNomi[i];
+            }
+            console.log(arrayNomi);
+            console.log(arrayNomiInverso);
+            
+
+            let divListaNomi = document.getElementById("idListaNomi");
+            let divListaNomiInverso = document.getElementById("idListaNomiInverso");
+            let strItems = "";
+            let strItems2 = "";
+            for (let i = 0; i < arrayNomi.length; i++) {
+                strItems += '<p>' + (i+1).toString() + ' - ' + arrayNomi[i] + '</p>';
+                strItems2 += '<p>' + (arrayNomiInverso.length-i).toString() + ' - ' + arrayNomiInverso[i] + '</p>';
+            }
+            
+            divListaNomi.innerHTML = strItems
+            divListaNomiInverso.innerHTML = strItems2
+             }*/
+            
+        function caricamentoNomi() {
+            
+            let arrayNomi = ["Giovanni", "Pietro", "Davide", "Steve", "Nene"];
+            
+            
+            
+            
+            let divListaNomi = document.getElementById("idListaNomi");
+            let divListaNomiInverso = document.getElementById("idListaNomiInverso");
+            let strItems = "";
+            let strItems2 = "";
+            for (let i = 0; i < arrayNomi.length; i++) {
+                strItems += '<p>' + (i+1).toString() + ' - ' + arrayNomi[i] + '</p>';
+                strItems2 += '<p>' + (arrayNomi.length-i).toString() + ' - ' + arrayNomi[arrayNomi.length-1-i] + '</p>';
+                //strItems2 += '<p>' + (arrayNomiInverso.length-i).toString() + ' - ' + arrayNomi[iarrayNomi.lenght-1-i] + '</p>';
+            }
+            
+            divListaNomi.innerHTML = strItems
+            divListaNomiInverso.innerHTML = strItems2
+            
+            console.log(arrayNomi);
+        }
+        
+        
+        
+        
+        
+       
+
+    </script>
+</body>
+</html>

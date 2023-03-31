@@ -31,6 +31,12 @@
         
         
     </main>
+
+    <footer>
+        <p id="idData">
+            
+        </p>
+    </footer>
     <script>
         var strPaginaIniziale = '<label for="txtImmagine01">Immagine01</label>';
         strPaginaIniziale += '<input type="text" name="txtImmagine01" id="txtImmagini01" placeholder="goku.jpg">'; //è uguale a fare strPaginaIniziale = strPaginaIniziale + ''
@@ -42,13 +48,13 @@
         //strPaginaIniziale += '<img src="img/goku.jpg" alt="Goku" width="300" height="200" id="idImmagine01">';
         //strPaginaIniziale += '<img src="img/mrsatan.avif" alt="Mr.Satan" width="300" height="200" id="idImmagine02">';
         strPaginaIniziale += '</div>';
-        strPaginaIniziale += '<input type="button" value="Caricamento Immagini" onclick="caricaImmagini()">';
-        strPaginaIniziale += '<input type="button" value="Inverti Posizione" onclick="invertiImmagineCopia()">';
+        strPaginaIniziale += '<input type="button" value="Caricamento Immagini" onclick="caricaImmaginiNew()">';
+        strPaginaIniziale += '<input type="button" value="Inverti Posizione" onclick="invertiImmaginiNew()">';
         document.getElementById("idMainContent").innerHTML = strPaginaIniziale;
 
-        var objImmagine01 = document.getElementById("txtImmagini01");
-        var objImmagine02 = document.getElementById("txtImmagini02");
-
+        //var objImmagine01 = document.getElementById("txtImmagini01");
+        //var objImmagine02 = document.getElementById("txtImmagini02");
+        /*
         function caricaImmagini() {
             //console.log("Immagine01" + objImmagine01.value);
             //console.log("Immagine02" + objImmagine02.value);            
@@ -87,6 +93,27 @@
             var strImmagini = '<img src="img/'+objImmagine01ValueCopia+'" alt="Goku" width="300" height="200" id="idImmagine01">';
             strImmagini += '<img src="img/'+objImmagine02ValueCopia+'" alt="Mr.Satan" width="300" height="200" id="idImmagine02">';
             document.getElementById("idImmagini").innerHTML = strImmagini;
+        } */
+
+        function caricaImmaginiNew() {
+            var txtImmagine01 = document.getElementById("txtImmagini01").value;
+            var txtImmagine02 = document.getElementById("txtImmagini02").value;
+
+            var strImmagini = '<img src="img/'+txtImmagine01+'" alt="Goku" width="300" height="200" id="idImmagine01">';
+            strImmagini += '<img src="img/'+txtImmagine02+'" alt="Mr.Satan" width="300" height="200" id="idImmagine02">';
+
+            document.getElementById("idImmagini").innerHTML = strImmagini;
+        }  
+
+        function invertiImmaginiNew() {
+            var immagine01 = document.getElementById("idImmagine01");
+            var immagine02 = document.getElementById("idImmagine02");
+            var temp = immagine01.src;
+            immagine01.src = immagine02.src;
+            immagine02.src = temp;
+
+
+
         }
 
     </script>
