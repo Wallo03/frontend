@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="caricamentoPaginaIniziale()">
+    <main id="idMainContent">
+
+    </main>
+
+    <script>
+        function caricamentoPaginaIniziale() {
+
+
+        var strPaginaIniziale = '<label for="txtImmagine01">Immagine01</label>';
+        strPaginaIniziale += '<input type="text" name="txtImmagine01" id="txtImmagini01" onchange="validazioneCampi()" placeholder="goku.jpg">'; //è uguale a fare strPaginaIniziale = strPaginaIniziale + ''
+        strPaginaIniziale += '<br>';
+        strPaginaIniziale += '<label for="txtImmagine02">Immagine02</label>';
+        strPaginaIniziale += '<input type="text" name="txtImmagine02" id="txtImmagini02" onchange="validazioneCampi()" placeholder="mrsatan.avif">';
+        strPaginaIniziale += '<br>';
+        strPaginaIniziale += '<div id="idImmagini">';
+        //strPaginaIniziale += '<img src="img/goku.jpg" alt="Goku" width="300" height="200" id="idImmagine01">';
+        //strPaginaIniziale += '<img src="img/mrsatan.avif" alt="Mr.Satan" width="300" height="200" id="idImmagine02">';
+        strPaginaIniziale += '</div>';
+        strPaginaIniziale += '<input id="idCaricamentoImmagini" type="button" value="Caricamento Immagini" onclick="caricaImmaginiNew()" disabled>';
+        strPaginaIniziale += '<input id="idInvertiPosizione" type="button" value="Inverti Posizione" onclick="invertiImmaginiNew()" disabled>';
+        document.getElementById("idMainContent").innerHTML = strPaginaIniziale;
+    }
+
+        function validazioneCampi() {
+            var txtImmagine01 = document.getElementById("txtImmagini01").value;
+            var txtImmagine02 = document.getElementById("txtImmagini02").value;
+            var btnCaricamentoImmagine = document.getElementById("idCaricamentoImmagini");
+            var btnInvertiPosizione = document.getElementById("idInvertiPosizione").value;
+            if (txtImmagine01 != "" && txtImmagine02 != "") {
+                btnCaricamentoImmagine.disabled = false;
+            } else {
+                btnCaricamentoImmagine.disabled = true;  
+            }
+        }
+
+        function attivaInvertiPosizione() {
+            var btnInvertiPosizione = document.getElementById("idInvertiPosizione");
+            btnInvertiPosizione.disabled=false
+
+        }
+
+        function caricaImmaginiNew() {
+            var txtImmagine01 = document.getElementById("txtImmagini01").value;
+            var txtImmagine02 = document.getElementById("txtImmagini02").value;
+
+            var strImmagini = '<img src="img/'+txtImmagine01+'" alt="Goku" width="300" height="200" id="idImmagine01">';
+            strImmagini += '<img src="img/'+txtImmagine02+'" alt="Mr.Satan" width="300" height="200" id="idImmagine02">';
+
+            document.getElementById("idImmagini").innerHTML = strImmagini;
+            attivaInvertiPosizione();
+        }  
+
+        function invertiImmaginiNew() {
+            var immagine01 = document.getElementById("idImmagine01");
+            var immagine02 = document.getElementById("idImmagine02");
+            var temp = immagine01.src;
+            immagine01.src = immagine02.src;
+            immagine02.src = temp;
+        }
+    </script>
+    
+</body>
+</html>

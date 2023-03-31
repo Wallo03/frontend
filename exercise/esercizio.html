@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esercizio</title>
+</head>
+<body>
+    <main id="idMain">
+        
+        <P id="myList"></P>
+        <input type="button" value="CaricaNomi" id="idCaricaNomi" onclick="cliccaBottone()">
+        
+
+
+
+
+
+
+
+        <script>
+            var arrayNomi = ["Irene", "Marco", "Valentino"]
+            var lista = ""
+
+            var bottone = '<input type="button" value="Carica Nomi" id="idCaricaNomi" onclick="cliccaBottone()">'
+            document.getElementById("idMain").innerHTML = bottone
+
+
+            function cliccaBottone() {
+                for (let i = 0; i < arrayNomi.length; i++) {
+                    lista += (i+1) + "&nbsp" + arrayNomi[i] + "<br>"
+                    
+                }
+                document.getElementById("idMain").innerHTML = lista
+            }
+
+
+
+
+        </script>
+    </main>
+</body>
+</html>

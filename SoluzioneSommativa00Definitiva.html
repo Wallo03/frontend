@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soluzione Sommativa Definitva</title>
+</head>
+<body>
+    <main id="idMainContent">
+
+
+    </main>
+
+    <footer>
+        <p id="idData">
+            
+        </p>
+
+        <p id="idArray">
+
+        </p>
+        <p id="idArrayNumeri">
+
+        </p>
+    </footer>
+
+    <script>
+        var strPaginaIniziale = '<label for="txtImmagine01">Immagine01</label>';
+        strPaginaIniziale += '<input type="text" name="txtImmagine01" id="txtImmagini01" placeholder="goku.jpg">'; //è uguale a fare strPaginaIniziale = strPaginaIniziale + ''
+        strPaginaIniziale += '<br>';
+        strPaginaIniziale += '<label for="txtImmagine02">Immagine02</label>';
+        strPaginaIniziale += '<input type="text" name="txtImmagine02" id="txtImmagini02" placeholder="mrsatan.avif">';
+        strPaginaIniziale += '<br>';
+        strPaginaIniziale += '<div id="idImmagini">';
+        //strPaginaIniziale += '<img src="img/goku.jpg" alt="Goku" width="300" height="200" id="idImmagine01">';
+        //strPaginaIniziale += '<img src="img/mrsatan.avif" alt="Mr.Satan" width="300" height="200" id="idImmagine02">';
+        strPaginaIniziale += '</div>';
+        strPaginaIniziale += '<input type="button" value="Caricamento Immagini" onclick="caricaImmaginiNew()">';
+        strPaginaIniziale += '<input type="button" value="Inverti Posizione" onclick="invertiImmaginiNew()">';
+        document.getElementById("idMainContent").innerHTML = strPaginaIniziale;
+
+        //impostazione della data nel footer
+        var data = document.getElementById("idData");
+        data.innerHTML = new Date();
+        console.log(new Date())
+
+        //impostazione di un array
+        var giorni = new Array("Lunedi", "Martedi", "Mercoledi", "Giovedi", "Venerdi", "Sabato", "Domenica");
+        var array = document.getElementById("idArray");
+        array.innerHTML = giorni[0];
+        var numeri = [1,2,3,4,5,6,7,8];
+        var arrayNumeri = document.getElementById("idArrayNumeri");
+        arrayNumeri.innerHTML = numeri;
+        numeri[0] = 564;
+        numeri[1] = 222;
+        arrayNumeri.innerHTML = "[" + numeri + "]" +" di lunghezza " + numeri.length + " ultimo elemento: " + numeri[numeri.length - 1] + " extra elemento " + numeri[55];
+        
+        var i = 0
+        i++; //i = i+1
+        console.log("Valore di i:" + i);
+        var j = 0;
+        j = j+1; //1
+        console.log("Valora di j; " + j);
+        ++i; //2
+        console.log("Valore di i: " + i);
+        --i;
+        console.log("Valore di i: " + i);
+        i--;
+        console.log("Valore di i: " + i);
+
+        i = 0;
+        var x = ++i;
+        console.log("Valore di i: " + i);
+        console.log("Valore di x: " + x);
+        
+        i = 3
+        var y = i++ + 5
+        console.log("Valore di i: " + i);
+        console.log("Valore di y: " + y);
+        
+        //equivalente
+        i = 3
+        y = i+5
+        i = i+i
+
+        i = 3
+        var y = ++i + 5
+        console.log("Valore di i: " + i);
+        console.log("Valore di y: " + y);
+
+        //equivalente
+        i = 3
+        i = i+i
+        y = i+5
+
+        i = 3;
+        var myArray = [1, 2, 3, 4, 5];
+        console.log(myArray.length);
+        var k = i+1;
+        console.log("valore dell'elemento " + k + "esimo = " + myArray[i]);
+        i = 3
+        //i = i+6;
+        i +=6;
+        i +=6;
+        console.log("Valore di i: " + i)
+        
+        var str1 = "Ciao "
+        var str2 = "come stai?"
+        str1 += str2 //come fare str1 = str1 + str2
+        console.log(str1)
+
+        var a = 10;
+        var b = 20;
+        var c = 1;
+        if (a < b) {
+            //facciamo la somma
+            var strMessaggio = "Somma a + b: "
+            console.log("Somma a + b: " + (a+b));
+        }
+        else 
+            console.log("Somma a * b: " + (a*b));
+        
+        if (a<b && c==0){
+            console.log("Condizione vera a<b AND c==0");
+        }else {
+            if (c==0) {
+                console.log("AND Falso per c=0");
+            } else{
+                console.log("AND Falso per c!=0");
+            }
+        }
+
+        if(a<b) 
+            if(c==0)
+    
+        
+        
+        function caricaImmaginiNew() {
+            var txtImmagine01 = document.getElementById("txtImmagini01").value;
+            var txtImmagine02 = document.getElementById("txtImmagini02").value;
+
+            var strImmagini = '<img src="img/'+txtImmagine01+'" alt="Goku" width="300" height="200" id="idImmagine01">';
+            strImmagini += '<img src="img/'+txtImmagine02+'" alt="Mr.Satan" width="300" height="200" id="idImmagine02">';
+
+            document.getElementById("idImmagini").innerHTML = strImmagini;
+        }  
+
+        function invertiImmaginiNew() {
+            var immagine01 = document.getElementById("idImmagine01");
+            var immagine02 = document.getElementById("idImmagine02");
+            var temp = immagine01.src;
+            immagine01.src = immagine02.src;
+            immagine02.src = temp;
+        }
+
+    </script>
+    
+</body>
+</html>
