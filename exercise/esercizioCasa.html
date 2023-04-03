@@ -10,17 +10,84 @@
     <main id="idMain">
         <!--<input type="text" name="txtImmagine" id="idTestoImmagine">
         <input type="button" id="idBottone" value="Inserisci">
+        <label for="txtImmagine"> immagine da inserire</label>
+        <div id="idDivLista">
+            <input type="button" id="idVisualizza" value="Visualizza immagini" disabled>
+            
+        </div>
+        <div id="idDivSequenza">
+            
+        </div>
+        <a href="../img/goku.jpg" target="_blank"></a>
+        <img src="" alt="">
+    -->
+</main>
+   <!-- <a href="../img/goku.jpg" target="_blank">
+        <img src="../img/goku.jpg" alt="Goku" width="300" height="200">
+    </a>
         -->
-    </main>
     <script>
+        var listaImmagini = []
         function inizioPagina() {
-            let paginaInizio = '<input type="text" name="txtImmagine" id="idTestoImmagine">'
-                paginaInizio += '<input type="button" id="idBottone" value="Inserisci">'
+            let paginaInizio = '<label for="txtImmagine"> Immagine da Inserire</label>'
+                paginaInizio += '<input type="text" name="txtImmagine" id="idTestoImmagine" placeholder="goku.jpg" onchange="validaPathImmagine()">'
+                paginaInizio += '<input type="button" id="idBottone" value="Inserisci" onclick="bottoneLista()"disabled>'
+                paginaInizio += '<div id="idDivLista"></div>'
+                paginaInizio += '<input type="button" id="idVisualizza" value="Visualizza immagini" onclick="bottoneVisualizza()" disabled>'
+                paginaInizio += '<div id="idDivSequenza"></div>'
             document.getElementById("idMain").innerHTML = paginaInizio
         }
 
-        function ancoraNonSo(params) {
+        function validaPathImmagine() {
+            let txtImmagine = document.getElementById("idTestoImmagine").value;
+            let btnCaricaImg = document.getElementById("idBottone");
+            if (txtImmagine != "") {
+                btnCaricaImg.disabled = false;
+            }else 
+                btnCaricaImg.disabled = true;
+                
+            }
+
+        function bottoneLista() {
+            let txtImmagine = document.getElementById("idTestoImmagine");
+            let btnCaricaImg = document.getElementById("idBottone");
+            let btnVisualizzaImmagini = document.getElementById("idVisualizza");
+            let divListaImmagini = document.getElementById("idDivLista");
+
+            //verificare che elemento non sia già presente !!
+            if (!listaImmagini.includes(txtImmagine.value.toLowerCase())) {
+                listaImmagini.push(txtImmagine.value.toLowerCase());
+                let linkImage = "<ul>";
+                for (let i = 0; i < listaImmagini.length; i++) {
+                    linkImage += '<li><a href="../img/'+ listaImmagini[i] +'" target="_blank">'+ listaImmagini[i] +'</a></li>';
+                    
+                }
+                linkImage += "</ul>"
+    
+                //visualizza lista immagini
+                divListaImmagini.innerHTML = linkImage;
+                btnVisualizzaImmagini.disabled = false;
+                
+            } else {
+                //messaggio di errore 
+                alert("Immagine inserita già presente")            
+            }
             
+            btnCaricaImg.disabled = true;
+            txtImmagine.value = "";
+            txtImmagine.focus();
+            console.log(listaImmagini);
+        }
+
+        function bottoneVisualizza() {
+            let divSequenzaImmagini = document.getElementById("idDivSequenza");
+            let imageItems = "";
+            for (let i = 0; i < listaImmagini.length; i++) {
+                imageItems += '<a href="../img/'+ listaImmagini[i] +'" target="_blank">';
+                imageItems += '<img src="../img/'+ listaImmagini[i] +'" alt="'+ listaImmagini[i] +'" width="300" height="200">';
+                imageItems += '</a>';
+            }
+            divSequenzaImmagini.innerHTML = imageItems
         }
 
 
