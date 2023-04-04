@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Passaggio Parametri Funzioni</title>
+</head>
+<body id="idBody">
+
+    <input type="button" id="idBtnCalcola" value="Calcola" onclick="calcola(100)"> <br>
+    <input type="button" id="idBtnCalcola2" value="Calcola Array" onclick="calcolaArray(100)"> <br>
+    <input type="button" id="idBtnCalcola2" value="Estrai Pari Array" onclick="estraiDaArray()"> <br>
+    <span id="idSpan"></span> <br>
+    <span id="idSpanArray"></span> <br>
+    <span id="idSpanArrayPari"></span>
+    <script>
+        
+        function calcola(offset) {
+            var valore01 = 10;
+            var valore02 = 20;
+            var operazione = '';
+            //var somma1 = somma(valore01, valore02);
+           
+            //console.log("Valore calcolato di somma: " + somma(valore01, valore02).toString());
+            
+            //var moltiplica1 = moltiplica(valore01, valore02);
+           
+            //onsole.log("Valore calcolato di moltiplica: " + moltiplica(valore01, valore02).toString());
+           
+            let spanOperazione = document.getElementById("idSpan");
+            operazione = '+'
+            spanOperazione.innerHTML = "Operazione eseguita: " + operazione + " risultato " + (offset + operazioniMatematiche('+', valore01, valore02)).toString();
+        }
+        function somma(par01, par02) {
+            return par01 + par02;
+        }
+        
+            function moltiplica(par01, par02) {
+            return par01 * par02;
+            
+        }
+        function operazioniMatematiche(operazione, par01, par02) {
+            /*if(operazione=='*')
+                return par01 * par02;
+            if(operazione=='/')
+                return par01 / par02;
+                if(par02 != 0)
+                    return par01/par02
+                else
+                    return null
+            if(operazione=='+')
+                return par01 + par02;
+            if(operazione=='-')
+                return par01 - par02;
+                */
+            let valoreCalcolato = 0;  //uguale a un if ma solo piu preciso
+            switch (operazione) {
+                case '*':
+                    valoreCalcolato = par01 * par02;
+                    break;
+                case '+':
+                    valoreCalcolato = somma(par01, par02);
+                    break;
+                case '/':
+                    if(par02 != 0)
+                        valoreCalcolato = par01 / par02;
+                    else
+                        valoreCalcolato = "Errore"
+                    break;
+                case '-':
+                    valoreCalcolato = par01 - par02;
+                    break;
+            
+                default:
+                    break;
+            }
+            return valoreCalcolato;
+            
+        }
+        function sommaOffsetArray(array, offset) {
+            //console.log("array dentro funzione somma: " + array);
+            for (let i = 0; i < array.length; i++) {
+                array[i] += offset;
+                
+            }
+            //console.log("array dentro funzione dopo somma: " + array);
+        }
+        
+        function calcolaArray(offset) {
+            let myArray = [10, 20, 30, 40, 50];
+            sommaOffsetArray(myArray, offset);
+            let spanArray = document.getElementById("idSpanArray");
+            spanArray.innerHTML = myArray;
+        }
+        
+        function estraiElementiPari(array) {
+            let arrayPari = [];
+            let j=0;
+            for (let i = 0; i < array.length; i+=2) {
+                arrayPari[j++] = array[i];
+            }
+            
+        }
+        return arrayPari
+    
+        function estraiDaArray() {
+            let myArray = [10, 20, 30, 40, 50];
+            let myArrayPari = estraiElementiPari(myArray);
+            let spanArrayPari = document.getElementById("idSpanArrayPari")
+            spanArrayPari.innerHTML = myArrayPari
+            console.log(myArray);
+        }
+
+    </script>
+</body>
+</html>
