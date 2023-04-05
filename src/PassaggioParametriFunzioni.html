@@ -8,9 +8,9 @@
 </head>
 <body id="idBody">
 
-    <input type="button" id="idBtnCalcola" value="Calcola" onclick="calcola(100)"> <br>
-    <input type="button" id="idBtnCalcola2" value="Calcola Array" onclick="calcolaArray(100)"> <br>
-    <input type="button" id="idBtnCalcola2" value="Estrai Pari Array" onclick="estraiDaArray()"> <br>
+    <input type="button" id="idBtnCalcola" value="Calcola" onclick="calcola(100)"><br>
+    <input type="button" id="idBtnCalcola2" value="Calcola Array" onclick="calcolaArray(100)"><br>
+    <input type="button" id="idBtnCalcola2" value="Estrai Pari Array" onclick="estraiDaArray()"><br>
     <span id="idSpan"></span> <br>
     <span id="idSpanArray"></span> <br>
     <span id="idSpanArrayPari"></span>
@@ -101,14 +101,14 @@
                 arrayPari[j++] = array[i];
             }
             
+            return arrayPari
         }
-        return arrayPari
     
         function estraiDaArray() {
             let myArray = [10, 20, 30, 40, 50];
             let myArrayPari = estraiElementiPari(myArray);
-            let spanArrayPari = document.getElementById("idSpanArrayPari")
-            spanArrayPari.innerHTML = myArrayPari
+            let spanArrayPari = document.getElementById("idSpanArrayPari");
+            spanArrayPari.innerHTML = myArrayPari;
             console.log(myArray);
         }
 

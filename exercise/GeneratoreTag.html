@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genera Tag</title>
+</head>
+<body>
+    <main id="idMain">
+        <label for=""> Inserisci Tag</label>
+        <input type="text" name="nomeTag" id="idTxtTag">
+        <input type="button" value="Crea Tag" onclick="bottoneTag()" id="idBtn">
+    </main>
+
+    <div id="idDiv">
+
+    </div>
+
+    <script>
+
+
+        function bottoneTag() {
+            var tagTxt = document.getElementById("idTxtTag").value;
+
+                switch (tagTxt) {
+                    case "p":
+                        var p = document.createElement("p");
+                        var txt = document.createTextNode("CIAOO ZII")
+                        p.appendChild(txt)
+                        document.getElementById("idDiv").appendChild(p)
+                        break;
+                    case "a":
+                        var a = document.createElement("a");
+                        document.appendChild(a)
+                        break;
+                    case "img":
+                        var img = document.createElement("img");
+                        document.appendChild(img)
+                        break;
+
+                    default:
+                        break;
+                }
+        }
+    </script>
+</body>
+</html>
