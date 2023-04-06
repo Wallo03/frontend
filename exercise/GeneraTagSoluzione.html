@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genera Tag uagliù</title>
+</head>
+<body>
+    <main id="idMain">
+        <input type="button" value="Genera Tag" onclick="scriviTAG()">
+    </main>
+    <div id="idDivTAG">
+
+    </div>
+    <script>
+        function scriviTAG() {
+            let div = document.getElementById("idDivTAG")
+            let strListaTAG = generaTag("img", "goku.jpg", "idImg", "Classe", "../img/goku.jpg" )
+            strListaTAG += generaTag("img", "goku.jpg", "", "Classe", "../img/anime.gif" )
+            div.innerHTML = strListaTAG
+
+        }
+        function generaTag(tag, innerText, id, classe, url) {
+            let stringaTag = "";
+            let lowerTag = tag.toLowerCase();
+            switch (lowerTag) {
+                case 'p' :
+                case 'h1' :
+                case 'h3' :
+                case 'span' :
+                    stringaTag += '<' + lowerTag + ' id="' + id + '" ' + 'class="' + classe + '"' + '> ' // + innerText + ' </' + lowerTag + '>'
+                    stringaTag += innerText;
+                    stringaTag += ' </' + lowerTag + '>';
+                    console.log(stringaTag);
+                case 'a' :
+                    stringaTag += '<' + lowerTag + ' href="' + url + '" ' + 'id="' + id + '" ' + 'class="' + classe + '"' + '> ' // + innerText + ' </' + lowerTag + '>'
+                    stringaTag += innerText;
+                    stringaTag += ' </' + lowerTag + '>';
+                    console.log(stringaTag);
+                    break;
+                case 'img' :
+                    let proprId = ''
+                    /*
+                    if (id != '') 
+                        stringaTag += '<' + lowerTag + ' src="' + url + '" ' + 'id="' + id + '" ' + 'class="' + classe + '"' + ' alt="'+ innerText + '" ' + '>' 
+                    else 
+                        stringaTag += '<' + lowerTag + ' src="' + url + '" ' + '" ' + 'class="' + classe + '"' + ' alt="'+ innerText + '" ' + '>'
+                        */
+                    if (id != '') {
+                        proprId += 'id="' + id + '"';
+                    }
+                        stringaTag += '<' + lowerTag + ' src="' + url + '" ' + proprId  + 'class="' + classe + '"' + ' alt="'+ innerText + '" ' + '>' 
+                    console.log(stringaTag);
+                    break;
+            
+                default:
+                    break;
+            }     
+            return stringaTag;
+        }
+    </script>
+</body>
+</html>
