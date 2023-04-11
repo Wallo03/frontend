@@ -1,0 +1,16 @@
+div {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 34px;
+    color: chartreuse;
+}
+h1 {
+    font-size: 50px;
+    background-color: blue;
+}
+h2 {
+    font-size: 35px;
+}
+
+#idDIV02 {
+    color: darkgreen;
+}
