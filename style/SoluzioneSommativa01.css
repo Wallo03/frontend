@@ -1,0 +1,9 @@
+.visible {
+    display: table;
+}
+
+
+.invisible {
+    display: none;
+}
+

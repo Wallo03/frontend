@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prova Sommativa 01</title>
+    <link rel="stylesheet" href="../style/SoluzioneSommativa01.css">
+    <script src="../src/SoluzioneSommativa.01.js"></script>
+</head>
+<body>
+    <form name="myForm" action="" onsubmit="return false">
+        <label for="rows">Number Rows</label>
+        <input type="number" name="rows" id="rows" placeholder="Insert rows" min="1" max="10" onchange="abilitaBottone()">
+        <label for="columns">Number Columns</label>
+        <input type="number" name="columns" id="columns" min="1" max="10" placeholder="Insert columns" onchange="abilitaBottone()"><br>
+        <input type="button" name="btn" value="Genera Tabella" disabled onclick="generaTabella(document.myForm.rows.value, document.myForm.columns.value, 'divTable')">
+    </form>
+    
+    <div id="divTable"></div>
+    <button id="btnHideTable" disabled onclick="hideTable()">Nascondi tabella</button>
+</body>
+</html>
