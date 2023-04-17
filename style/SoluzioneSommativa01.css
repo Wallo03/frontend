@@ -7,3 +7,14 @@
     display: none;
 }
 
+input[type=number] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+input[type=number] {
+    border: 2px solid rgb(55, 0, 255);
+
+}
